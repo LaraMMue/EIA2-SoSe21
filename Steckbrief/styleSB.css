@@ -1,0 +1,16 @@
+body {
+	font-family: arial;
+	font-size: small;
+    background-color: darkslateblue;
+    color: white;
+}
+
+a {
+    color: thistle;
+    text-decoration: none;
+}
+
+a:hover {
+    color: aquamarine;
+}
+ 
