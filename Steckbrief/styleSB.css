@@ -6,8 +6,9 @@ body {
 }
 
 a {
-    color: thistle;
+    color: rgb(39, 38, 53);
     text-decoration: none;
+    display: block;
 }
 
 a:hover {
