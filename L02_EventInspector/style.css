@@ -1,0 +1,45 @@
+body {
+    height: 100%;
+    text-align: center;
+    display: grid;
+    background-color: rgb(216, 180, 180);
+}
+
+h1 {
+    text-align: left;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
+#div0 {
+    position: relative;
+    border: solid #000000;
+    height: 600px;
+    width: 550px;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+#div1 {
+    position: relative;
+    border: solid #000000;
+    height: 600px;
+    width: 550px;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+span {
+    position: fixed;
+    border: solid black;
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    padding-top: 30px;
+    background-color: rgb(184, 158, 185);
+}
