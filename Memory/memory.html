@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory</title>
+    <link rel="stylesheet" href="memory.css">
+    <script src="memory.js" defer></script>
+</head>
+<body>
+
+    <div class="main">
+        <h1>Memory Game</h1>
+        <p id="timer" class="hidden">Zeit: </p>
+
+        <div id="menu" class="">
+            <form>
+                <div id="cardQuantity">
+                    <legend>Kartenpaare</legend>
+                    <input type="number" id="quantity" name="quantity" min="5" max="25" step="5">
+                </div>
+
+                <div id="cardSize">
+                    <legend>Größe der Karten</legend>
+                    <input type="range" id="size" name="size" min="100" max="200">
+                </div>
+
+                <div id="colors">
+                    <legend>Farben</legend>
+                    <label for="background">Hintergrund:</label>
+                    <input type="color" id="background" name="background" value="#84b08b">
+
+                    <label for="font">Schrift:</label>
+                    <input type="color" id="font" name="font" value="#82fff3">
+
+                    <label for="backside">Kartenrückseite:</label>
+                    <input type="color" id="backside" name="backside" value="#35496e">
+
+                </div>
+
+                <div id="fonts">
+                    <legend>Schriftart</legend>
+
+                    <input type="radio" id="times" name="times" value="Times New Roman">
+                    <label for="times">Times New Roman</label><br>
+
+                    <input type="radio" id="verdana" name="verdana" value="Verdana">
+                    <label for="verdana">Verdana</label><br>
+
+                    <input type="radio" id="comic" name="comic" value="Comic Sans MS">
+                    <label for="comic">Comic Sans MS</label>
+                </div>
+
+            </form>
+
+            <input type="button" id="start" name="start" value="Start Game">
+
+        </div>
+
+        
+
+        <div id="board">
+
+        </div>
+
+        <div id="win" class="hidden">
+            <h3>Bravo!</h3>
+            <p id="time">Benötigte Zeit: </p>
+            <input type="button" id="new" name="new" value="New Game">
+        </div>
+    </div>
+    
+</body>
+</html>
