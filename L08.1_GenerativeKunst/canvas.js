@@ -47,7 +47,7 @@ var L08GenArt;
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, windowWith, windowHeight);
     }
-    // drawPattern funktioniert irgendwie nicht??? //
+    // drawPattern funktioniert nicht??? //
     function drawPattern() {
         let pattern = document.createElement("canvas").getContext("2d");
         pattern.canvas.width = windowWith;
