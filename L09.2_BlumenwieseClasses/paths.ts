@@ -1,7 +1,7 @@
 namespace L09Landscape {
 
     export function drawCloud(_position: Vector): void {
-        let nParticles: number = 40;
+        let nParticles: number = 10;
         let particleRadius: number = 70;
         let particle: Path2D = new Path2D();
         let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, particleRadius);
@@ -18,8 +18,8 @@ namespace L09Landscape {
         //build cloud with particles
         for (let drawn: number = 0; drawn < nParticles; drawn++) {
             crc2.save();
-            let x: number = (Math.random() - 0.5) * 300;
-            let y: number = - (Math.random() * 125);
+            let x: number = 50 + 10 * drawn;
+            let y: number = - 2 + drawn;
             crc2.translate(x, y);
             crc2.fill(particle);
             crc2.restore();

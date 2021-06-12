@@ -2,7 +2,7 @@
 var L09Landscape;
 (function (L09Landscape) {
     function drawCloud(_position) {
-        let nParticles = 40;
+        let nParticles = 10;
         let particleRadius = 70;
         let particle = new Path2D();
         let gradient = L09Landscape.crc2.createRadialGradient(0, 0, 0, 0, 0, particleRadius);
@@ -16,8 +16,8 @@ var L09Landscape;
         //build cloud with particles
         for (let drawn = 0; drawn < nParticles; drawn++) {
             L09Landscape.crc2.save();
-            let x = (Math.random() - 0.5) * 300;
-            let y = -(Math.random() * 125);
+            let x = 50 + 10 * drawn;
+            let y = -2 + drawn;
             L09Landscape.crc2.translate(x, y);
             L09Landscape.crc2.fill(particle);
             L09Landscape.crc2.restore();
