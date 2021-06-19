@@ -73,7 +73,7 @@ var L11_1_Advanced;
             moveable.move(1 / 50);
             moveable.draw();
         }
-        console.log("update");
+        //console.log("update");
     }
 })(L11_1_Advanced || (L11_1_Advanced = {}));
 //# sourceMappingURL=main.js.map

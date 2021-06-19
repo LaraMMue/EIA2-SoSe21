@@ -298,7 +298,7 @@ namespace L11_1_Advanced {
         crc2.stroke();
         crc2.fill();
 
-        console.log("hallo");
+        //console.log("hallo");
         
     }
         

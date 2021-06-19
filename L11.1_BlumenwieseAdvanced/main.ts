@@ -87,7 +87,7 @@ namespace L11_1_Advanced {
                 moveable.move(1 / 50); 
                 moveable.draw(); 
        }
-       console.log("update");
+       //console.log("update");
     
    }
   

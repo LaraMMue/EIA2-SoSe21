@@ -251,7 +251,7 @@ var L11_1_Advanced;
         L11_1_Advanced.crc2.fillStyle = "Black";
         L11_1_Advanced.crc2.stroke();
         L11_1_Advanced.crc2.fill();
-        console.log("hallo");
+        //console.log("hallo");
     }
     L11_1_Advanced.drawBee = drawBee;
     //beehive
