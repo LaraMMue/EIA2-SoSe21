@@ -4,7 +4,7 @@ var L11_1_Advanced;
     class Flower1 extends L11_1_Advanced.Flower {
         constructor(_position) {
             super();
-            this.color = "Fuchsia";
+            this.color = "red";
             this.fps = 10;
         }
         displayNectarLevel() {

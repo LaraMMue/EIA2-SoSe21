@@ -357,7 +357,6 @@ namespace L11_1_Advanced {
         crc2.stroke();
         crc2.closePath();
         crc2.restore();
-        //console.log(intervall);
         if (degree == 361)   
             clearInterval(intervall);
     },                                       _fps);    

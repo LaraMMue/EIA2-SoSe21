@@ -4,11 +4,10 @@ var L11_1_Advanced;
     class Flower2 extends L11_1_Advanced.Flower {
         constructor(_position) {
             super();
-            this.color = "DodgerBlue";
+            this.color = "blue";
             this.fps = 11;
         }
         displayNectarLevel() {
-            //Nectar
             L11_1_Advanced.showNectar(this.position, Flower2.degree, this.color, this.fps);
             L11_1_Advanced.crc2.save();
             L11_1_Advanced.crc2.beginPath();
@@ -21,7 +20,6 @@ var L11_1_Advanced;
             L11_1_Advanced.crc2.restore();
         }
         draw() {
-            //drawFlower1
             L11_1_Advanced.drawFlower2(-10, -L11_1_Advanced.canvas.height);
         }
     }

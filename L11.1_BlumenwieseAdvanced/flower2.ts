@@ -1,6 +1,6 @@
 namespace L11_1_Advanced {
     export class Flower2 extends Flower {
-        private color: string = "DodgerBlue";
+        private color: string = "blue";
         private fps: number = 11;
 
         constructor(_position: Vector) {
@@ -8,7 +8,6 @@ namespace L11_1_Advanced {
         }
 
         public displayNectarLevel(): void {
-            //Nectar
             showNectar(this.position, Flower2.degree, this.color, this.fps);
 
             crc2.save();
@@ -24,7 +23,6 @@ namespace L11_1_Advanced {
         }
 
         public draw(): void {
-            //drawFlower1
             drawFlower2(-10, -canvas.height);
         }
     }

@@ -1,6 +1,6 @@
 namespace L11_1_Advanced {
     export class Flower1 extends Flower {
-         private color: string = "Fuchsia";
+         private color: string = "red";
          private fps: number = 10;
  
          constructor(_position: Vector) {
