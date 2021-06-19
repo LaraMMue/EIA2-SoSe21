@@ -4,7 +4,7 @@ namespace L11_1_Advanced {
    Name: Lara Müller
    Matrikel: 266298
    Datum: 18.06.2021
-   mithilfe des Codes aus de Lektion + Lisa Herbigs Hilfe
+   mithilfe des Codes aus der Lektion + Lisa Herbigs Hilfe
    */
    window.addEventListener("load", handleLoad);
    export let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
