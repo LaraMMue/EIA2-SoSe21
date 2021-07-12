@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylsheet" href="style.css">
+    <script src="main.js" defer></script>
+    <script src="paths.js" defer></script>
+</head>
+<body>
+    <div id="settings">
+        <h2>Game Settings</h2>
+        <div>
+            <h3>Team A</h3>
+            <form id="settingsA">
+                <fieldset id="colorA">
+                    <legend>Jersey Color</legend>
+                    <input type="color" name="colorA" id="color" value="ff0000">
+                </fieldset>
+                <fieldset id="speedA">
+                    <legend>Running Speed</legend>
+                    min 
+                    <input type="range" name="minA1" min="5" max="50" step="5" value="30">
+                    max
+                    <input type="range" name="maxA1" min="50" max="100" step="5" value="60">
+                </fieldset>
+                <fieldset id="precisionA">
+                    <legend>Shot Precision</legend>
+                    min
+                    <input type="range" name="minA2" min="5" max="50" step="5" value="10">
+                    max
+                    <input type="range" name="maxA2" min="50" max="100" step="5" value="80">
+                </fieldset>
+            </form>
+        </div>
+        <div>
+            <h3>Team B</h3>
+            <form id="settingsB">
+                <fieldset id="colorB">
+                    <legend>Jersey Color</legend>
+                    <input type="color" name="colorA" id="color" value="ff0000">
+                </fieldset>
+                <fieldset id="speedB">
+                    <legend>Running Speed</legend>
+                    min 
+                    <input type="range" name="minB1" min="5" max="50" step="5" value="30">
+                    max
+                    <input type="range" name="maxB1" min="50" max="100" step="5" value="60">
+                </fieldset>
+                <fieldset id="precisionB">
+                    <legend>Shot Precision</legend>
+                    min
+                    <input type="range" name="minB2" min="5" max="50" step="5" value="10">
+                    max
+                    <input type="range" name="maxB2" min="50" max="100" step="5" value="80">
+                </fieldset>
+            </form>
+        </div>
+        <button type="button" id="start">Start</button>
+    </div>
+
+    <div>
+        <canvas></canvas>
+    </div>
+    
+</body>
+</html>
