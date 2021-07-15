@@ -1,4 +1,4 @@
-namespace fifa {
+namespace endaufgabe_jogi {
     export function drawField(): void {
         
         crc2.fillStyle = "green";
@@ -124,7 +124,7 @@ namespace fifa {
         crc2.stroke();
     }
 
-    export function drawPlayer(): void {
+    export function drawPlayer(_position: Vector, _type: string, _color: string, _team: string): void {
 
         crc2.translate(canvas.width / 2, canvas.height / 2);
         
