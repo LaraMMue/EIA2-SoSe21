@@ -99,29 +99,41 @@ var endaufgabe_jogi;
     }
     endaufgabe_jogi.drawField = drawField;
     function drawPlayer(_position, _type, _color, _team) {
-        endaufgabe_jogi.crc2.translate(endaufgabe_jogi.canvas.width / 2, endaufgabe_jogi.canvas.height / 2);
-        endaufgabe_jogi.crc2.fillStyle = "red";
-        endaufgabe_jogi.crc2.lineWidth = 2;
-        endaufgabe_jogi.crc2.strokeStyle = "red";
-        // Ärmel rechts
+        endaufgabe_jogi.crc2.save();
         endaufgabe_jogi.crc2.beginPath();
-        endaufgabe_jogi.crc2.lineTo(50, 2);
-        endaufgabe_jogi.crc2.lineTo(70, 10);
-        endaufgabe_jogi.crc2.lineTo(65, 25);
-        endaufgabe_jogi.crc2.lineTo(40, 15);
+        endaufgabe_jogi.crc2.moveTo(_position.x - endaufgabe_jogi.canvas.width / 110 * 2, _position.y - endaufgabe_jogi.canvas.height / 75 * 2);
+        endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3, _position.y - endaufgabe_jogi.canvas.height / 75 * 2);
+        endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3, (_position.y - endaufgabe_jogi.canvas.height / 75 * 2) - endaufgabe_jogi.canvas.height / 75 * 2);
+        endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3 + endaufgabe_jogi.canvas.width / 110 * 1, (_position.y - endaufgabe_jogi.canvas.height / 75 * 2) - endaufgabe_jogi.canvas.height / 75 * 2 + endaufgabe_jogi.canvas.height / 75 * 1);
+        endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3 + 2 * (endaufgabe_jogi.canvas.width / 110 * 1), (_position.y - endaufgabe_jogi.canvas.height / 75 * 2) - endaufgabe_jogi.canvas.height / 75 * 2);
+        endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3 + 2 * (endaufgabe_jogi.canvas.width / 110 * 1) - endaufgabe_jogi.canvas.width / 110 * 2, (_position.y - endaufgabe_jogi.canvas.height / 75 * 2) - endaufgabe_jogi.canvas.height / 75 * 4);
+        endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3 + 2 * (endaufgabe_jogi.canvas.width / 110 * 1) - endaufgabe_jogi.canvas.width / 110 * 5, (_position.y - endaufgabe_jogi.canvas.height / 75 * 2) - endaufgabe_jogi.canvas.height / 75 * 4);
+        endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3 + 2 * (endaufgabe_jogi.canvas.width / 110 * 1) - endaufgabe_jogi.canvas.width / 110 * 7, (_position.y - endaufgabe_jogi.canvas.height / 75 * 2) - endaufgabe_jogi.canvas.height / 75 * 2);
+        endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3 + 2 * (endaufgabe_jogi.canvas.width / 110 * 1) - endaufgabe_jogi.canvas.width / 110 * 6, (_position.y - endaufgabe_jogi.canvas.height / 75 * 2) - endaufgabe_jogi.canvas.height / 75 * 1);
+        endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3 + 2 * (endaufgabe_jogi.canvas.width / 110 * 1) - endaufgabe_jogi.canvas.width / 110 * 5, (_position.y - endaufgabe_jogi.canvas.height / 75 * 2) - endaufgabe_jogi.canvas.height / 75 * 2);
         endaufgabe_jogi.crc2.closePath();
-        endaufgabe_jogi.crc2.stroke();
+        endaufgabe_jogi.crc2.fillStyle = _color;
         endaufgabe_jogi.crc2.fill();
-        // Ärmel links
-        endaufgabe_jogi.crc2.beginPath();
-        endaufgabe_jogi.crc2.moveTo(0, 2);
-        endaufgabe_jogi.crc2.lineTo(-20, 10);
-        endaufgabe_jogi.crc2.lineTo(-15, 25);
-        endaufgabe_jogi.crc2.lineTo(10, 15);
-        endaufgabe_jogi.crc2.closePath();
-        endaufgabe_jogi.crc2.stroke();
-        endaufgabe_jogi.crc2.fill();
-        endaufgabe_jogi.crc2.fillRect(0, 0, 50, 80);
+        endaufgabe_jogi.crc2.restore();
+        if (_type == "lineJudge") {
+            endaufgabe_jogi.crc2.save();
+            endaufgabe_jogi.crc2.beginPath();
+            endaufgabe_jogi.crc2.moveTo(_position.x - endaufgabe_jogi.canvas.width / 110 * 2, _position.y - endaufgabe_jogi.canvas.height / 75 * 3);
+            endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3, _position.y - endaufgabe_jogi.canvas.height / 75 * 3);
+            endaufgabe_jogi.crc2.closePath();
+            endaufgabe_jogi.crc2.lineWidth = 7;
+            endaufgabe_jogi.crc2.stroke();
+            endaufgabe_jogi.crc2.restore();
+        }
+        if (_type == "referee") {
+            endaufgabe_jogi.crc2.save();
+            endaufgabe_jogi.crc2.beginPath();
+            endaufgabe_jogi.crc2.moveTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2.5) + endaufgabe_jogi.canvas.width / 110 + 10, _position.y - endaufgabe_jogi.canvas.height / 75 * 5);
+            endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2.5) + endaufgabe_jogi.canvas.width / 110 + 10, _position.y - endaufgabe_jogi.canvas.height / 75 * 3);
+            endaufgabe_jogi.crc2.lineWidth = 3;
+            endaufgabe_jogi.crc2.stroke();
+            endaufgabe_jogi.crc2.restore();
+        }
     }
     endaufgabe_jogi.drawPlayer = drawPlayer;
     function drawBall(_position) {
