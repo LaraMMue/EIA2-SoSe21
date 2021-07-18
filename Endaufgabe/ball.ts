@@ -24,26 +24,25 @@ namespace endaufgabe_jogi {
                 let mousePos: Vector = new Vector(x, y);
                 let difference: Vector = Vector.getDifference(mousePos, this.position);
                 let offset: Vector = new Vector (difference.x, difference.y);
-                let length: number = offset.length;
 
                 if (ran == false) {
                     switch (true) {
-                        case (length == 0):
+                        case (offset.length == 0):
                             console.log("length = ", length);
                             break;
-                        case (length < (width / 110 * 10.5)):
+                        case (offset.length < (width / 110 * 10.5)):
                             spreading = this.moveWithOffset(mousePos, 3);
                             break;
-                        case (length < (width / 110 * 21.5)):
+                        case (offset.length < (width / 110 * 21.5)):
                             spreading = this.moveWithOffset(mousePos, 15);
                             break;
-                        case (length < (width / 2)):
+                        case (offset.length < (width / 2)):
                             spreading = this.moveWithOffset(mousePos, 25);
                             break;
-                        case (length < (width / 110 * 88.5)):
+                        case (offset.length < (width / 110 * 88.5)):
                             spreading = this.moveWithOffset(mousePos, 50);
                             break;
-                        case (length < (width / 110 * 110)):
+                        case (offset.length < (width / 110 * 110)):
                             spreading = this.moveWithOffset(mousePos, 70);
                             break;
     

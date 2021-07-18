@@ -21,25 +21,24 @@ var endaufgabe_jogi;
                 let mousePos = new endaufgabe_jogi.Vector(x, y);
                 let difference = endaufgabe_jogi.Vector.getDifference(mousePos, this.position);
                 let offset = new endaufgabe_jogi.Vector(difference.x, difference.y);
-                let length = offset.length;
                 if (endaufgabe_jogi.ran == false) {
                     switch (true) {
-                        case (length == 0):
+                        case (offset.length == 0):
                             console.log("length = ", length);
                             break;
-                        case (length < (endaufgabe_jogi.width / 110 * 10.5)):
+                        case (offset.length < (endaufgabe_jogi.width / 110 * 10.5)):
                             endaufgabe_jogi.spreading = this.moveWithOffset(mousePos, 3);
                             break;
-                        case (length < (endaufgabe_jogi.width / 110 * 21.5)):
+                        case (offset.length < (endaufgabe_jogi.width / 110 * 21.5)):
                             endaufgabe_jogi.spreading = this.moveWithOffset(mousePos, 15);
                             break;
-                        case (length < (endaufgabe_jogi.width / 2)):
+                        case (offset.length < (endaufgabe_jogi.width / 2)):
                             endaufgabe_jogi.spreading = this.moveWithOffset(mousePos, 25);
                             break;
-                        case (length < (endaufgabe_jogi.width / 110 * 88.5)):
+                        case (offset.length < (endaufgabe_jogi.width / 110 * 88.5)):
                             endaufgabe_jogi.spreading = this.moveWithOffset(mousePos, 50);
                             break;
-                        case (length < (endaufgabe_jogi.width / 110 * 110)):
+                        case (offset.length < (endaufgabe_jogi.width / 110 * 110)):
                             endaufgabe_jogi.spreading = this.moveWithOffset(mousePos, 70);
                             break;
                         default:
