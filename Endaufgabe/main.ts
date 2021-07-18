@@ -36,8 +36,6 @@ namespace endaufgabe_jogi {
 
     let settingsA: HTMLElement = <HTMLElement> document.querySelector("#settingsA");
     let settingsB: HTMLElement = <HTMLElement> document.querySelector("#settingsB");
-    let teamASettings: string[] = [];
-    let teamBSettings: string[] = [];
 
     let teamA: string = "Team A";
     let teamB: string = "Team B";
@@ -109,21 +107,45 @@ namespace endaufgabe_jogi {
 
     function formChangeA(_event: Event): void {
         let menuDataA: FormData = new FormData(document.forms[0]);
-        teamASettings = [];
         for (let input of menuDataA) {
-            teamASettings.push(String(input[1]));
-            console.log("Team A Settings:" + teamASettings);
-        }
+            switch (input[0]) {
+                case "colorA":
+                    colorA = String(input[1]);
+                    break;
+                case "maxA1":
+                    speedMaxA = Number(input[1]);
+                    break;
+                case "maxA2":
+                    precisionMaxA = Number(input[1]);
+                    break;
+                default:
+                    console.log("no settings for A");     
+            }
+            
+            
+        } 
+        console.log("Team A Settings: Color: " + colorA + " Max Speed: " + speedMaxA + " Max Precision: " + precisionMaxA);
     }
 
     function formChangeB(_event: Event): void {
         let menuDataB: FormData = new FormData(document.forms[1]);
-        teamBSettings = [];
         for (let input of menuDataB) {
-            teamBSettings.push(String(input[1]));
-            console.log("Team B Settings:" + teamBSettings);
+            switch (input[0]) {
+                case "colorB":
+                    colorB = String(input[1]);
+                    break;
+                case "maxB1":
+                    speedMaxB = Number(input[1]);
+                    break;
+                case "maxB2":
+                    precisionMaxB = Number(input[1]);
+                    break;
+                default:
+                    console.log("no settings for B");  
+            }
             
         }
+        console.log("Team B Settings: Color: " + colorB + " Max Speed: " + speedMaxB + " Max Precision: " + precisionMaxB);
     }
 
     function startGame(_event: Event): void {

@@ -9,20 +9,27 @@ var endaufgabe_jogi;
             this.position = _position;
             this.color = _color;
         }
-        move() {
-            let left = endaufgabe_jogi.width / 110 * 5;
-            let right = endaufgabe_jogi.width / 110 * 100;
-            let moveX = endaufgabe_jogi.createRandomNum(left, right);
-            let xDirection = endaufgabe_jogi.createRandomNum(-moveX, moveX);
-            let position = new endaufgabe_jogi.Vector(xDirection, 0);
+        move(_ballPosition) {
+            if (_ballPosition) {
+                let difference = endaufgabe_jogi.Vector.getDifference(_ballPosition, this.position);
+                let offset = new endaufgabe_jogi.Vector(difference.x, 0);
+                offset.scale(this.speed);
+                this.position.add(offset);
+            }
+            /*let left: number = width / 110 * 5;
+            let right: number = width / 110 * 100;
+            let moveX: number = createRandomNum(left, right);
+            let xDirection: number = createRandomNum(-moveX, moveX);
+            let position: Vector = new Vector(xDirection, 0);
             position.scale(this.speed);
             this.position.add(position);
+
             if (this.position.x < 0) {
-                this.position.x += endaufgabe_jogi.crc2.canvas.width;
+                this.position.x += crc2.canvas.width;
             }
-            else if (this.position.x > endaufgabe_jogi.crc2.canvas.width) {
-                this.position.x -= endaufgabe_jogi.crc2.canvas.width;
-            }
+            else if (this.position.x > crc2.canvas.width) {
+                this.position.x -= crc2.canvas.width;
+            } */
         }
         draw() {
             endaufgabe_jogi.drawPlayer(this.position, this.type, this.color, "referees");
