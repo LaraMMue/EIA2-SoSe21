@@ -159,7 +159,7 @@ namespace endaufgabe_jogi {
         crc2.fillRect(0, 0, 50, 80);
     }
 
-    export function drawBall(): void {
+    export function drawBall(_position: Vector): void {
         crc2.strokeStyle = "black";
         crc2.fillStyle = "white";
         let radius: number = 10;

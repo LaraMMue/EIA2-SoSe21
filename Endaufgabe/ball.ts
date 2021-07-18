@@ -11,69 +11,105 @@ namespace endaufgabe_jogi {
         }
 
         move(_event?: MouseEvent): void {
-            if (_event && stopDifference == false) {
-                
-                let x: number = _event.clientX;
-                let y: number = _event.clientY;
+            if (_event) {
+                let rect: DOMRect = canvas.getBoundingClientRect();
+                let x: number = _event.clientX - rect.left;
+                let y: number = _event.clientY - rect.top;
+                let newPos: Vector | undefined;
+                if (goal == true) {
+                    x = this.start.x;
+                    y = this.start.y;
+                }
+
                 let mousePos: Vector = new Vector(x, y);
                 let difference: Vector = Vector.getDifference(mousePos, this.position);
                 let offset: Vector = new Vector (difference.x, difference.y);
                 let length: number = offset.length;
 
-                switch (true) {
-                    case (length < (width / 110 * 10.5)):
-                        this.moveWithOffset(mousePos, 3);
-                        newBallPos = false;
-                        break;
-
-                        case (length < (width / 110 * 21.5)): 
-                            console.log("area2");
-                            this.moveWithOffset(mousePos, 10);
+                if (ran == false) {
+                    switch (true) {
+                        case (length == 0):
+                            console.log("length = ", length);
                             break;
-    
-                        case (length < (width / 2)): 
-                            console.log("area3");
-                            this.moveWithOffset(mousePos, 20);
+                        case (length < (width / 110 * 10.5)):
+                            spreading = this.moveWithOffset(mousePos, 3);
                             break;
-    
+                        case (length < (width / 110 * 21.5)):
+                            spreading = this.moveWithOffset(mousePos, 15);
+                            break;
+                        case (length < (width / 2)):
+                            spreading = this.moveWithOffset(mousePos, 25);
+                            break;
                         case (length < (width / 110 * 88.5)):
-                            console.log("area4");
-                            this.moveWithOffset(mousePos, 35);
+                            spreading = this.moveWithOffset(mousePos, 50);
                             break;
-    
                         case (length < (width / 110 * 110)):
-                            console.log("area5");
-                            this.moveWithOffset(mousePos, 50);
+                            spreading = this.moveWithOffset(mousePos, 70);
                             break;
     
                         default:
-                            console.log("something went wrong"); 
+                            console.log("ball move error");    
+                    }
                 }
 
-                let ballPosRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
-                let mousePosRound: Vector = new Vector(Math.round(mousePos.x), Math.round(mousePos.y));
+                if (spreading) {
+                    newPos = spreading[1];
+                }
 
-                if (ballPosRound.x == mousePosRound.x && ballPosRound.y == mousePosRound.y) {
-                    ballMoves = false;
+                if (newPos != null) {
+                    let difference: Vector = Vector.getDifference(newPos, this.position);
+                    let newOffset: Vector = new Vector(difference.x, difference.y);
+                    newOffset.scale(this.speed);
+                    this.position.add(newOffset);
+
+                    let round: Vector = new Vector(Math.round(newPos.x), Math.round(newPos.y));
+                    let roundBall: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
+
+                    if (round.x == roundBall.x && round.y == roundBall.y) {
+                        ballMoves = false;
+                        ran = false;
+                        goal = false;
+                    }
                 }
             }
         }
 
-        moveWithOffset(_mousePos: Vector, _spread: number): void {
+
+        moveWithOffset(_mousePos: Vector, _spread: number): Vector[] {
+            ran = true;
             let spread: number = width / 110 * _spread * (activePlayerPrecision / 100);
-            let newPos: Vector = new Vector(_mousePos.x + spread, _mousePos.y + spread);
+            let newPosNegative: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x - spread), createRandomNum(_mousePos.y, _mousePos.y - spread));
+            let newPosPositive: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x + spread), createRandomNum(_mousePos.y, _mousePos.y + spread));
+            let newPosAll: Vector = new Vector(createRandomNum(newPosNegative.x, newPosPositive.x), createRandomNum(newPosNegative.y, newPosPositive.y));
+            let newPos: Vector = new Vector(newPosAll.x, newPosAll.y);
             let difference2: Vector = Vector.getDifference(newPos, this.position);
             let offset2: Vector = new Vector(difference2.x, difference2.y);
-            offset2.scale(1 / this.speed);
-            this.position.add(offset2);
+            return [offset2, newPos];
 
-            let round2: Vector = new Vector(Math.round(newPos.x), Math.round(newPos.y));
-            let roundBall2: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
+        }
 
-            if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
-                console.log("Ball stopped rolling");
-                ballMoves = false;
-                
+        goal(): void {
+            if (this.position.x >= canvas.width / 110 * 100 && this. position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
+                goal = true;
+                this.handleGoal("teamA");
+            
+            } else if (this.position.x <= canvas.width / 110 * 5 && this.position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
+                goal = true;
+                this.handleGoal("temaB");
+            }
+        }
+
+        handleGoal(_team: string): void {
+            if (_team == "teamA") {
+                this.position = new Vector (this.start.x, this.start.y);
+                goalsA = goalsA + 1;
+                goals.innerHTML = "A: " + goalsA + " : " + "B: " + goalsB;
+                ran = false;
+            } else if (_team == "teamB") {
+                this.position = new Vector (this.start.x, this.start.y);
+                goalsB = goalsB + 1;
+                goals.innerHTML = "A: " + goalsA + " : " + "B: " + goalsB;
+                ran = false;
             }
         }
 

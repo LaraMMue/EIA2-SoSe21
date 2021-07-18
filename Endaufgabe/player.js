@@ -18,12 +18,15 @@ var endaufgabe_jogi;
             if (_ballPosition) {
                 let difference = endaufgabe_jogi.Vector.getDifference(_ballPosition, this.position);
                 let offset = new endaufgabe_jogi.Vector(difference.x, difference.y);
-                offset.scale(this.speed);
+                offset.scale(1 / this.speed);
                 this.position.add(offset);
-                if (this.position.x == _ballPosition.x && this.position.y == _ballPosition.y) {
-                    endaufgabe_jogi.activePlayerPrecision = this.position;
+                let playerPos = new endaufgabe_jogi.Vector(Math.round(this.position.x), Math.round(this.position.y));
+                let ballPos = new endaufgabe_jogi.Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
+                if (playerPos.x == ballPos.x && playerPos.y == ballPos.y) {
+                    endaufgabe_jogi.activePlayerPrecision = this.precision;
                     let event = new CustomEvent("first_player", { "detail": { player: this } });
                     endaufgabe_jogi.crc2.canvas.dispatchEvent(event);
+                    this.displayBallPossession(this.team, this.number);
                 }
             }
         }
@@ -39,17 +42,26 @@ var endaufgabe_jogi;
             else if (_ballPosition) {
                 let difference = endaufgabe_jogi.Vector.getDifference(_ballPosition, this.position);
                 let offset = new endaufgabe_jogi.Vector(difference.x, difference.y);
-                offset.scale(this.speed);
+                offset.scale(1 / this.speed);
                 this.position.add(offset);
-                if (this.position.x == _ballPosition.x && this.position.y == _ballPosition.y) {
-                    endaufgabe_jogi.activePlayerPrecision = this.position;
+                let playerPos = new endaufgabe_jogi.Vector(Math.round(this.position.x), Math.round(this.position.y));
+                let ballPos = new endaufgabe_jogi.Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
+                if (playerPos.x == ballPos.x && playerPos.y == ballPos.y) {
+                    endaufgabe_jogi.activePlayerPrecision = this.precision;
                     let event = new CustomEvent("first_player", { "detail": { player: this } });
                     endaufgabe_jogi.crc2.canvas.dispatchEvent(event);
+                    this.displayBallPossession(this.team, this.number);
                 }
             }
         }
+        displayBallPossession(_team, _number) {
+            endaufgabe_jogi.ballPossession.innerHTML = "Im Ballbesitz: " + _team + " " + _number;
+        }
+        playerInformation(_event) {
+            endaufgabe_jogi.playerInfo.innerHTML = "Team: " + this.team + "<br>" + "Number: " + this.number + "<br>" + "Running Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
+        }
         wait() {
-            console.log("Waiting for action");
+            console.log("waiting");
         }
         draw() {
             endaufgabe_jogi.drawPlayer(this.position, this.color, this.type, this.team);
@@ -59,7 +71,7 @@ var endaufgabe_jogi;
                 this.task = _task;
             switch (this.task) {
                 case endaufgabe_jogi.TASK.WAIT:
-                    console.log("wait");
+                    console.log("wait for your turn");
                     break;
                 case endaufgabe_jogi.TASK.MOVE:
                     this.move(_ball);
@@ -68,7 +80,7 @@ var endaufgabe_jogi;
                     this.moveBack();
                     break;
                 default:
-                    console.log("Spieler gehorcht nicht");
+                    console.log("task could not change");
             }
         }
     }

@@ -8,7 +8,7 @@ namespace endaufgabe_jogi {
         color: string;
         number: number;
         task: TASK = TASK.WAIT;
-
+        
         constructor(_position: Vector, _base: Vector, _team: string, _speed: number, _precision: number, _color: string, _number: number) {
             super(_position);
             this.position = _position;
@@ -24,13 +24,17 @@ namespace endaufgabe_jogi {
             if (_ballPosition) {
                 let difference: Vector = Vector.getDifference(_ballPosition, this.position);
                 let offset: Vector = new Vector (difference.x, difference.y);
-                offset.scale(this.speed);
+                offset.scale(1 / this.speed);
                 this.position.add(offset);
+                let playerPos: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
+                let ballPos: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
+
                 
-                if (this.position.x == _ballPosition.x && this.position.y == _ballPosition.y) {
-                    activePlayerPrecision = this.position;
+                if (playerPos.x == ballPos.x && playerPos.y == ballPos.y) {
+                    activePlayerPrecision = this.precision;
                     let event: CustomEvent = new CustomEvent("first_player", {"detail": {player: this}});
                     crc2.canvas.dispatchEvent(event);
+                    this.displayBallPossession(this.team, this.number);
                 }
             }
         }
@@ -44,26 +48,36 @@ namespace endaufgabe_jogi {
             if (this.position.x == this.base.x && this.position.y == this.base.y) {
                 checkArrival = true;
                 this.wait();
-            }
+            }   else if (_ballPosition) {
+                    let difference: Vector = Vector.getDifference(_ballPosition, this.position);
+                    let offset: Vector = new Vector (difference.x, difference.y);
+                    offset.scale(1 / this.speed);
+                    this.position.add(offset);
+                    let playerPos: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
+                    let ballPos: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
 
-            else if (_ballPosition) {
-                let difference: Vector = Vector.getDifference(_ballPosition, this.position);
-                let offset: Vector = new Vector (difference.x, difference.y);
-                offset.scale(this.speed);
-                this.position.add(offset);
-                
-                if (this.position.x == _ballPosition.x && this.position.y == _ballPosition.y) {
-                    activePlayerPrecision = this.position;
-                    let event: CustomEvent = new CustomEvent("first_player", {"detail": {player: this}});
-                    crc2.canvas.dispatchEvent(event);
-                }
-            }
+                    
+                    if (playerPos.x == ballPos.x && playerPos.y == ballPos.y) {
+                        activePlayerPrecision = this.precision;
+                        let event: CustomEvent = new CustomEvent("first_player", {"detail": {player: this}});
+                        crc2.canvas.dispatchEvent(event);
+                        this.displayBallPossession(this.team, this.number);
+                    } 
+                }  
+        
+        }
 
-            
+        displayBallPossession(_team: string, _number: number): void {
+            ballPossession.innerHTML = "Im Ballbesitz: " + _team + " " + _number;
+        }
+
+        playerInformation(_event?: MouseEvent): void {
+            playerInfo.innerHTML = "Team: " + this.team + "<br>" + "Number: " + this.number + "<br>" + "Running Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
+
         }
 
         wait(): void {
-            console.log("Waiting for action");
+            console.log("waiting");
             
         }
 
@@ -74,10 +88,10 @@ namespace endaufgabe_jogi {
         changeTask(_task?: TASK, _ball?: Vector): void {
             if (_task)
                 this.task = _task;
-            
+
             switch (this.task) {
                 case TASK.WAIT:
-                    console.log("wait");
+                    console.log("wait for your turn");
                     break;
                 case TASK.MOVE:
                     this.move(_ball);
@@ -86,11 +100,11 @@ namespace endaufgabe_jogi {
                     this.moveBack();
                     break;
                 default:
-                    console.log("Spieler gehorcht nicht");
-                    
-                    
+                    console.log("task could not change");
             }
         }
+
+        
     }
 
 

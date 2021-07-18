@@ -6,3 +6,9 @@ body {
 .hidden {
     display: none !important;
 }
+
+#gameInfo {
+    text-align: center;
+    align-content: center;
+    flex-direction: column;
+}

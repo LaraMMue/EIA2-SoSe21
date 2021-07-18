@@ -124,7 +124,7 @@ var endaufgabe_jogi;
         endaufgabe_jogi.crc2.fillRect(0, 0, 50, 80);
     }
     endaufgabe_jogi.drawPlayer = drawPlayer;
-    function drawBall() {
+    function drawBall(_position) {
         endaufgabe_jogi.crc2.strokeStyle = "black";
         endaufgabe_jogi.crc2.fillStyle = "white";
         let radius = 10;
