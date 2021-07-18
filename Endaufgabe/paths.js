@@ -100,6 +100,7 @@ var endaufgabe_jogi;
     endaufgabe_jogi.drawField = drawField;
     function drawPlayer(_position, _type, _color, _team) {
         endaufgabe_jogi.crc2.save();
+        endaufgabe_jogi.crc2.fillStyle = _color;
         endaufgabe_jogi.crc2.beginPath();
         endaufgabe_jogi.crc2.moveTo(_position.x - endaufgabe_jogi.canvas.width / 110 * 2, _position.y - endaufgabe_jogi.canvas.height / 75 * 2);
         endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3, _position.y - endaufgabe_jogi.canvas.height / 75 * 2);
@@ -112,7 +113,6 @@ var endaufgabe_jogi;
         endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3 + 2 * (endaufgabe_jogi.canvas.width / 110 * 1) - endaufgabe_jogi.canvas.width / 110 * 6, (_position.y - endaufgabe_jogi.canvas.height / 75 * 2) - endaufgabe_jogi.canvas.height / 75 * 1);
         endaufgabe_jogi.crc2.lineTo((_position.x - endaufgabe_jogi.canvas.width / 110 * 2) + endaufgabe_jogi.canvas.width / 110 * 3 + 2 * (endaufgabe_jogi.canvas.width / 110 * 1) - endaufgabe_jogi.canvas.width / 110 * 5, (_position.y - endaufgabe_jogi.canvas.height / 75 * 2) - endaufgabe_jogi.canvas.height / 75 * 2);
         endaufgabe_jogi.crc2.closePath();
-        endaufgabe_jogi.crc2.fillStyle = _color;
         endaufgabe_jogi.crc2.fill();
         endaufgabe_jogi.crc2.restore();
         if (_type == "lineJudge") {

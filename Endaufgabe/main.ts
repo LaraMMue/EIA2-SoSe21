@@ -178,6 +178,8 @@ namespace endaufgabe_jogi {
             let playerA: Player = new Player(positionsA[i], baseA[i], teamA, createRandomNum(speedMin, speedMaxA), createRandomNum(precisionMin, precisionMaxA), colorA, playerNumbersA[i]);
             playerA.draw();
             moveables.push(playerA);
+            console.log(colorA);
+            
         }
     }
 
@@ -205,7 +207,7 @@ namespace endaufgabe_jogi {
     }
 
     function createReferee(): void {
-        let referee: Referee = new Referee(new Vector(width / 110 * 60, height / 2 +30), "black");
+        let referee: Referee = new Referee(new Vector(width / 110 * 60, height / 2 + 30), "black");
         referee.draw();
         moveables.push(referee);
     }

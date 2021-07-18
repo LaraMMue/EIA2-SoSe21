@@ -5,8 +5,8 @@ var endaufgabe_jogi;
         constructor(_x = 0, _y = 0) {
             this.set(_x, _y);
         }
-        static getDifference(_v0, _v1) {
-            return new Vector(_v0.x - _v1.x, _v0.y - _v1.y);
+        static getDifference(_vector1, _vector2) {
+            return new Vector(_vector1.x - _vector2.x, _vector1.y - _vector2.y);
         }
         static getRandom(_minLength, _maxLength) {
             let length = _minLength + Math.random() * (_maxLength - _minLength);
@@ -30,9 +30,9 @@ var endaufgabe_jogi;
             this.x *= _factor;
             this.y *= _factor;
         }
-        add(_addend) {
-            this.x += _addend.x;
-            this.y += _addend.y;
+        add(_end) {
+            this.x += _end.x;
+            this.y += _end.y;
         }
         copy() {
             return new Vector(this.x, this.y);

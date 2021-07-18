@@ -7,8 +7,8 @@ namespace endaufgabe_jogi {
             this.set(_x, _y);
         }
 
-        public static getDifference(_v0: Vector, _v1: Vector): Vector {
-            return new Vector(_v0.x - _v1.x, _v0.y -  _v1.y);
+        public static getDifference(_vector1: Vector, _vector2: Vector): Vector {
+            return new Vector(_vector1.x - _vector2.x, _vector1.y -  _vector2.y);
             
         }
 
@@ -39,9 +39,9 @@ namespace endaufgabe_jogi {
             this.y *= _factor;
         }
 
-        public add(_addend: Vector): void {
-            this.x += _addend.x;
-            this.y += _addend.y;
+        public add(_end: Vector): void {
+            this.x += _end.x;
+            this.y += _end.y;
         }
 
         public copy(): Vector {

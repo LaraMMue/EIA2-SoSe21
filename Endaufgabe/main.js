@@ -126,6 +126,7 @@ var endaufgabe_jogi;
             let playerA = new endaufgabe_jogi.Player(positionsA[i], baseA[i], teamA, createRandomNum(speedMin, speedMaxA), createRandomNum(precisionMin, precisionMaxA), colorA, playerNumbersA[i]);
             playerA.draw();
             moveables.push(playerA);
+            console.log(colorA);
         }
     }
     function createTeamB() {
