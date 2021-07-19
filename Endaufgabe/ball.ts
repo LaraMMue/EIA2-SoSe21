@@ -104,7 +104,7 @@ namespace endaufgabe_jogi {
             
             } else if (this.position.x <= canvas.width / 110 * 5 && this.position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
                 goal = true;
-                this.handleGoal("temaB");
+                this.handleGoal("teamB");
             }
         }
 

@@ -91,7 +91,7 @@ var endaufgabe_jogi;
             }
             else if (this.position.x <= endaufgabe_jogi.canvas.width / 110 * 5 && this.position.y < endaufgabe_jogi.canvas.height / 2 + 40 && this.position.y > endaufgabe_jogi.canvas.height / 2 - 40) {
                 endaufgabe_jogi.goal = true;
-                this.handleGoal("temaB");
+                this.handleGoal("teamB");
             }
         }
         handleGoal(_team) {
