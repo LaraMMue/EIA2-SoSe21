@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="vector.js" defer></script>
+    <script src="main.js" defer></script>
+    <script src="paths.js" defer></script>
+    <script src="moveable.js" defer></script>
+    <script src="player.js" defer></script>
+    <script src="lineJudge.js" defer></script>
+    <script src="referee.js" defer></script>
+    <script src="ball.js" defer></script>
+</head>
+<body>
+    <div id="settings">
+        <h2>Game Settings</h2>
+        <div>
+            <h3>Team A</h3>
+            <form id="settingsA">
+                <fieldset id="colorA">
+                    <legend>Color</legend>
+                    <input type="color" name="colorA" id="color" value="#2eb9ff">
+                </fieldset>
+                <fieldset id="speedA">
+                    <legend>Running Speed</legend>
+                    <input type="range" name="maxA1" min="50" max="100" step="5" value="60">
+                </fieldset>
+                <fieldset id="precisionA">
+                    <legend>Shot Precision</legend>
+                    <input type="range" name="maxA2" min="5" max="100" step="5" value="80">
+                </fieldset>
+            </form>
+        </div>
+        <div>
+            <h3>Team B</h3>
+            <form id="settingsB">
+                <fieldset id="colorB">
+                    <legend>Color</legend>
+                    <input type="color" name="colorB" id="color" value="#ff0000">
+                </fieldset>
+                <fieldset id="speedB">
+                    <legend>Running Speed</legend>
+                    <input type="range" name="maxB1" min="50" max="100" step="5" value="60">
+                </fieldset>
+                <fieldset id="precisionB">
+                    <legend>Shot Precision</legend>
+                    <input type="range" name="maxB2" min="5" max="100" step="5" value="80">
+                </fieldset>
+            </form>
+        </div>
+        <button type="button" id="start">Start</button>
+    </div>
+
+    <div>
+        <canvas></canvas>
+    </div>
+    <br>
+    
+    <div id="gameInfo">
+        <h2>Game Information</h2>
+        <p id="goals">A <b>0 : 0</b> B</p>
+        <p id="ballPossession"><b>Im Ballbesitz:</b> <br> Team <br> Number</p>
+        <p id="playerInfo"><b>Spieler</b> <br> (hold <b>shift</b> and click on player to see) <br> <br> 
+        team: <br> number: <br> running speed: <br> precision: </p> <br><br>
+        <p><b>Add new player:</b><br>Press <b>A</b> or <b>B</b> on your keyboard, then hold <b>alt</b> and click on the field to place! </p><br>
+        <p><b>Delete player:</b><br>Hold <b>ctrl</b> and click on the player!</p>
+        <button type="button" id="newGame" class="hidden">New Game</button>
+    </div>
+</body>
+</html>
