@@ -26,19 +26,19 @@ var endaufgabe_jogi;
                         case (offset.length == 0):
                             console.log("length = ", length);
                             break;
-                        case (offset.length < (endaufgabe_jogi.width / 110 * 10.5)):
+                        case (offset.length < (endaufgabe_jogi.width / 1.15)):
                             endaufgabe_jogi.spreading = this.moveWithOffset(mousePos, 3);
                             break;
-                        case (offset.length < (endaufgabe_jogi.width / 110 * 21.5)):
+                        case (offset.length < (endaufgabe_jogi.width / 2.36)):
                             endaufgabe_jogi.spreading = this.moveWithOffset(mousePos, 15);
                             break;
                         case (offset.length < (endaufgabe_jogi.width / 2)):
                             endaufgabe_jogi.spreading = this.moveWithOffset(mousePos, 25);
                             break;
-                        case (offset.length < (endaufgabe_jogi.width / 110 * 88.5)):
+                        case (offset.length < (endaufgabe_jogi.width / 9.73)):
                             endaufgabe_jogi.spreading = this.moveWithOffset(mousePos, 50);
                             break;
-                        case (offset.length < (endaufgabe_jogi.width / 110 * 110)):
+                        case (offset.length < (endaufgabe_jogi.width / 12.1)):
                             endaufgabe_jogi.spreading = this.moveWithOffset(mousePos, 70);
                             break;
                         default:
@@ -66,12 +66,22 @@ var endaufgabe_jogi;
         moveWithOffset(_mousePos, _spread) {
             endaufgabe_jogi.ran = true;
             let spread = endaufgabe_jogi.width / 110 * _spread * (endaufgabe_jogi.activePlayerPrecision / 100);
+            function getNewPos() {
+                let newPosNegative = new endaufgabe_jogi.Vector(endaufgabe_jogi.createRandomNum(_mousePos.x, _mousePos.x - spread), endaufgabe_jogi.createRandomNum(_mousePos.y, _mousePos.y - spread));
+                let newPosPositive = new endaufgabe_jogi.Vector(endaufgabe_jogi.createRandomNum(_mousePos.x, _mousePos.x + spread), endaufgabe_jogi.createRandomNum(_mousePos.y, _mousePos.y + spread));
+                let newPosAll = new endaufgabe_jogi.Vector(endaufgabe_jogi.createRandomNum(newPosNegative.x, newPosPositive.x), endaufgabe_jogi.createRandomNum(newPosNegative.y, newPosPositive.y));
+                let newPos = new endaufgabe_jogi.Vector(newPosAll.x, newPosAll.y);
+                return newPos;
+            }
             let newPosNegative = new endaufgabe_jogi.Vector(endaufgabe_jogi.createRandomNum(_mousePos.x, _mousePos.x - spread), endaufgabe_jogi.createRandomNum(_mousePos.y, _mousePos.y - spread));
             let newPosPositive = new endaufgabe_jogi.Vector(endaufgabe_jogi.createRandomNum(_mousePos.x, _mousePos.x + spread), endaufgabe_jogi.createRandomNum(_mousePos.y, _mousePos.y + spread));
             let newPosAll = new endaufgabe_jogi.Vector(endaufgabe_jogi.createRandomNum(newPosNegative.x, newPosPositive.x), endaufgabe_jogi.createRandomNum(newPosNegative.y, newPosPositive.y));
             let newPos = new endaufgabe_jogi.Vector(newPosAll.x, newPosAll.y);
             let difference2 = endaufgabe_jogi.Vector.getDifference(newPos, this.position);
             let offset2 = new endaufgabe_jogi.Vector(difference2.x, difference2.y);
+            if (newPos.x < 0 || newPos.x > endaufgabe_jogi.width || newPos.y < 0 || newPos.y > endaufgabe_jogi.height) {
+                getNewPos();
+            }
             return [offset2, newPos];
         }
         goal() {

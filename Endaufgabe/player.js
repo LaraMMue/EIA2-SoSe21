@@ -18,8 +18,13 @@ var endaufgabe_jogi;
             if (_ballPosition) {
                 let difference = endaufgabe_jogi.Vector.getDifference(_ballPosition, this.position);
                 let offset = new endaufgabe_jogi.Vector(difference.x, difference.y);
-                offset.scale(1 / this.speed);
-                this.position.add(offset);
+                let normalise = endaufgabe_jogi.Vector.getNormalisedVector(offset, offset.length);
+                if (normalise) {
+                    normalise.scale(1 / this.speed);
+                    this.position.add(normalise);
+                }
+                //offset.scale(1 / this.speed);
+                //this.position.add(offset);
                 let playerPos = new endaufgabe_jogi.Vector(Math.round(this.position.x), Math.round(this.position.y));
                 let ballPos = new endaufgabe_jogi.Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
                 if (playerPos.x == ballPos.x && playerPos.y == ballPos.y) {
@@ -30,38 +35,42 @@ var endaufgabe_jogi;
                 }
             }
         }
-        moveBack(_ballPosition) {
+        moveBack() {
             let difference = endaufgabe_jogi.Vector.getDifference(this.base, this.position);
             let offset = new endaufgabe_jogi.Vector(difference.x, difference.y);
-            offset.scale(this.speed);
+            offset.scale(1 / this.speed);
             this.position.add(offset);
             if (this.position.x == this.base.x && this.position.y == this.base.y) {
                 endaufgabe_jogi.checkArrival = true;
                 this.wait();
-            }
-            else if (_ballPosition) {
-                let difference = endaufgabe_jogi.Vector.getDifference(_ballPosition, this.position);
-                let offset = new endaufgabe_jogi.Vector(difference.x, difference.y);
-                offset.scale(1 / this.speed);
-                this.position.add(offset);
-                let playerPos = new endaufgabe_jogi.Vector(Math.round(this.position.x), Math.round(this.position.y));
-                let ballPos = new endaufgabe_jogi.Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
-                if (playerPos.x == ballPos.x && playerPos.y == ballPos.y) {
-                    endaufgabe_jogi.activePlayerPrecision = this.precision;
-                    let event = new CustomEvent("first_player", { "detail": { player: this } });
-                    endaufgabe_jogi.crc2.canvas.dispatchEvent(event);
-                    this.displayBallPossession(this.team, this.number);
-                }
-            }
+            } /*else if (_ballPosition) {
+                    let difference: Vector = Vector.getDifference(_ballPosition, this.position);
+                    let offset: Vector = new Vector (difference.x, difference.y);
+                    offset.scale(1 / this.speed);
+                    this.position.add(offset);
+                    let playerPos: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
+                    let ballPos: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
+
+                    
+                    if (playerPos.x == ballPos.x && playerPos.y == ballPos.y) {
+                        activePlayerPrecision = this.precision;
+                        let event: CustomEvent = new CustomEvent("first_player", {"detail": {player: this}});
+                        crc2.canvas.dispatchEvent(event);
+                        this.displayBallPossession(this.team, this.number);
+                    }
+                }  */
         }
         displayBallPossession(_team, _number) {
             endaufgabe_jogi.ballPossession.innerHTML = "Im Ballbesitz: " + _team + " " + _number;
         }
         playerInformation(_event) {
-            endaufgabe_jogi.playerInfo.innerHTML = "Team: " + this.team + "<br>" + "Number: " + this.number + "<br>" + "Running Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
+            endaufgabe_jogi.playerInfo.innerHTML = "<b>Spieler</b>" + "<br>" + "Team: " + this.team + "<br>" + "Number: " + this.number + "<br>" + "Running Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
+            setTimeout(function () {
+                endaufgabe_jogi.playerInfo.innerHTML = "<b>Spieler</b>" + "<br>" + "Team: " + "<br>" + "Number: " + "<br>" + "Running Speed: " + "<br>" + "Precision: ";
+            }, 5000);
         }
         wait() {
-            console.log("waiting");
+            //console.log("waiting");
         }
         draw() {
             endaufgabe_jogi.drawPlayer(this.position, this.color, this.type, this.team);

@@ -10,16 +10,16 @@ namespace endaufgabe_jogi {
             this.color = _color;
         }
 
-        move(_ballPosition?: Vector): void {
+        move(/*_ballPosition?: Vector*/): void {
 
-            if (_ballPosition) {
+            /*if (_ballPosition) {
                 let difference: Vector = Vector.getDifference(_ballPosition, this.position);
                 let offset: Vector = new Vector (difference.x, 0);
                 offset.scale(this.speed);
                 this.position.add(offset);
-            }
+            }*/
 
-            /*let left: number = width / 110 * 5;
+            let left: number = width / 110 * 5;
             let right: number = width / 110 * 100;
             let moveX: number = createRandomNum(left, right);
             let xDirection: number = createRandomNum(-moveX, moveX);
@@ -32,7 +32,7 @@ namespace endaufgabe_jogi {
             }
             else if (this.position.x > crc2.canvas.width) {
                 this.position.x -= crc2.canvas.width;
-            } */
+            }
         }
 
         draw(): void {

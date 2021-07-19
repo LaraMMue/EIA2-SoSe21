@@ -148,6 +148,7 @@ namespace endaufgabe_jogi {
             crc2.beginPath();
             crc2.moveTo(_position.x - canvas.width / 110 * 2, _position.y - canvas.height / 75 * 3);
             crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3, _position.y - canvas.height / 75 * 3);
+            crc2.strokeStyle = "white";
             crc2.closePath();
             crc2.lineWidth = 7;
             crc2.stroke();
@@ -158,6 +159,7 @@ namespace endaufgabe_jogi {
             crc2.beginPath();
             crc2.moveTo((_position.x - canvas.width / 110 * 2.5) + canvas.width / 110 + 10, _position.y - canvas.height / 75 * 5);
             crc2.lineTo((_position.x - canvas.width / 110 * 2.5) + canvas.width / 110 + 10, _position.y - canvas.height / 75 * 3);
+            crc2.strokeStyle = "white";
             crc2.lineWidth = 3;
             crc2.stroke();
             crc2.restore();
@@ -165,6 +167,7 @@ namespace endaufgabe_jogi {
     }
 
     export function drawBall(_position: Vector): void {
+        crc2.save();
         crc2.strokeStyle = "black";
         crc2.fillStyle = "white";
         let radius: number = 10;
@@ -173,7 +176,7 @@ namespace endaufgabe_jogi {
         crc2.moveTo(canvas.width / 2, canvas.height / 2);
 
         crc2.beginPath();
-        crc2.arc(50, 80, radius, 0, 2 * Math.PI);
+        crc2.arc(_position.x, _position.y, radius, 0, 2 * Math.PI);
 
         crc2.closePath();
         crc2.stroke();

@@ -24,8 +24,13 @@ namespace endaufgabe_jogi {
             if (_ballPosition) {
                 let difference: Vector = Vector.getDifference(_ballPosition, this.position);
                 let offset: Vector = new Vector (difference.x, difference.y);
-                offset.scale(1 / this.speed);
-                this.position.add(offset);
+                let normalise: Vector | undefined = Vector.getNormalisedVector(offset, offset.length);
+                if (normalise) {
+                    normalise.scale(1 / this.speed);
+                    this.position.add(normalise);
+                }
+                //offset.scale(1 / this.speed);
+                //this.position.add(offset);
                 let playerPos: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
                 let ballPos: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
 
@@ -39,16 +44,16 @@ namespace endaufgabe_jogi {
             }
         }
 
-        moveBack(_ballPosition?: Vector): void {
+        moveBack(): void {
             let difference: Vector = Vector.getDifference(this.base, this.position);
             let offset: Vector = new Vector (difference.x, difference.y);
-            offset.scale(this.speed);
+            offset.scale(1 / this.speed);
             this.position.add(offset);
 
             if (this.position.x == this.base.x && this.position.y == this.base.y) {
                 checkArrival = true;
                 this.wait();
-            }   else if (_ballPosition) {
+            }   /*else if (_ballPosition) {
                     let difference: Vector = Vector.getDifference(_ballPosition, this.position);
                     let offset: Vector = new Vector (difference.x, difference.y);
                     offset.scale(1 / this.speed);
@@ -63,7 +68,7 @@ namespace endaufgabe_jogi {
                         crc2.canvas.dispatchEvent(event);
                         this.displayBallPossession(this.team, this.number);
                     } 
-                }  
+                }  */
         
         }
 
@@ -72,12 +77,16 @@ namespace endaufgabe_jogi {
         }
 
         playerInformation(_event?: MouseEvent): void {
-            playerInfo.innerHTML = "Team: " + this.team + "<br>" + "Number: " + this.number + "<br>" + "Running Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
+            playerInfo.innerHTML = "<b>Spieler</b>" + "<br>" + "Team: " + this.team + "<br>" + "Number: " + this.number + "<br>" + "Running Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
+
+            setTimeout(function(): void {
+                playerInfo.innerHTML = "<b>Spieler</b>" + "<br>" + "Team: " + "<br>" + "Number: " +  "<br>" + "Running Speed: " + "<br>" + "Precision: " ;
+            },         5000);
 
         }
 
         wait(): void {
-            console.log("waiting");
+            //console.log("waiting");
             
         }
 

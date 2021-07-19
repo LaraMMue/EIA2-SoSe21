@@ -2,7 +2,7 @@ namespace endaufgabe_jogi {
     export class Ball extends Moveable {
         start: Vector = new Vector (width / 2, height / 2);
         speed: number = 50;
-        targetPosition: DataViewConstructor;
+        targetPosition: Vector;
 
         constructor(_position: Vector) {
             super (_position);
@@ -30,19 +30,19 @@ namespace endaufgabe_jogi {
                         case (offset.length == 0):
                             console.log("length = ", length);
                             break;
-                        case (offset.length < (width / 110 * 10.5)):
+                        case (offset.length < (width / 1.15)):
                             spreading = this.moveWithOffset(mousePos, 3);
                             break;
-                        case (offset.length < (width / 110 * 21.5)):
+                        case (offset.length < (width / 2.36)):
                             spreading = this.moveWithOffset(mousePos, 15);
                             break;
                         case (offset.length < (width / 2)):
                             spreading = this.moveWithOffset(mousePos, 25);
                             break;
-                        case (offset.length < (width / 110 * 88.5)):
+                        case (offset.length < (width / 9.73)):
                             spreading = this.moveWithOffset(mousePos, 50);
                             break;
-                        case (offset.length < (width / 110 * 110)):
+                        case (offset.length < (width / 12.1)):
                             spreading = this.moveWithOffset(mousePos, 70);
                             break;
     
@@ -77,12 +77,22 @@ namespace endaufgabe_jogi {
         moveWithOffset(_mousePos: Vector, _spread: number): Vector[] {
             ran = true;
             let spread: number = width / 110 * _spread * (activePlayerPrecision / 100);
+            function getNewPos(): Vector {
+                let newPosNegative: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x - spread), createRandomNum(_mousePos.y, _mousePos.y - spread));
+                let newPosPositive: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x + spread), createRandomNum(_mousePos.y, _mousePos.y + spread));
+                let newPosAll: Vector = new Vector(createRandomNum(newPosNegative.x, newPosPositive.x), createRandomNum(newPosNegative.y, newPosPositive.y));
+                let newPos: Vector = new Vector(newPosAll.x, newPosAll.y);
+                return newPos;
+            }
             let newPosNegative: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x - spread), createRandomNum(_mousePos.y, _mousePos.y - spread));
             let newPosPositive: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x + spread), createRandomNum(_mousePos.y, _mousePos.y + spread));
             let newPosAll: Vector = new Vector(createRandomNum(newPosNegative.x, newPosPositive.x), createRandomNum(newPosNegative.y, newPosPositive.y));
             let newPos: Vector = new Vector(newPosAll.x, newPosAll.y);
             let difference2: Vector = Vector.getDifference(newPos, this.position);
             let offset2: Vector = new Vector(difference2.x, difference2.y);
+            if (newPos.x < 0 || newPos.x > width || newPos.y < 0 || newPos.y > height) {
+                getNewPos();
+            }
             return [offset2, newPos];
 
         }

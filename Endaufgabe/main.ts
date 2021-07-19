@@ -1,4 +1,6 @@
 namespace endaufgabe_jogi {
+
+    window.addEventListener("load", handleLoad);
     
     export let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
     export let crc2: CanvasRenderingContext2D;
@@ -16,12 +18,20 @@ namespace endaufgabe_jogi {
     export let width: number = Number (canvas.width);
     export let height: number = Number (canvas.height);
 
-    let positionsA: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
-    let positionsB: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
-    let baseA: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
-    let baseB: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)]; 
+    //let positionsA: Vector [] = [new Vector(width / 2 - 20, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
+    //let positionsB: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
+    //let baseA: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
+    //let baseB: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)]; 
     
-
+    /*let positionsA: Vector [] = [new Vector(100, 550), new Vector(200, 200), new Vector (200, 900), new Vector(300, 550), new Vector(400, 200), new Vector(400, 900), new Vector(500, 400), new Vector(500, 700), new Vector(700, 550), new Vector(800, 200), new Vector(800, 900)];
+    let positionsB: Vector [] = [new Vector(1000, 550), new Vector(900, 200), new Vector(900, 900), new Vector(800, 550), new Vector(700, 200), new Vector(700, 900), new Vector(600, 400), new Vector(600, 700), new Vector(400, 550), new Vector(300, 200), new Vector(300, 900)];
+    let baseA: Vector [] = [new Vector(100, 550), new Vector(200, 200), new Vector (200, 900), new Vector(300, 550), new Vector(400, 200), new Vector(400, 900), new Vector(500, 400), new Vector(500, 700), new Vector(700, 550), new Vector(800, 200), new Vector(800, 900)];
+    let baseB: Vector [] = [new Vector(1000, 550), new Vector(900, 200), new Vector(900, 900), new Vector(800, 550), new Vector(700, 200), new Vector(700, 900), new Vector(600, 400), new Vector(600, 700), new Vector(400, 550), new Vector(300, 200), new Vector(300, 900)];
+    */
+    let positionsA: Vector [] = [new Vector(width / 2 - 20, 550), new Vector(width / 2 + 40, 200), new Vector (width / 2 + 40, 900), new Vector(width / 2 + 200, 550), new Vector(width / 2 + 400, 200), new Vector(width / 2 + 400, 900), new Vector(width / 2 + 600, 400), new Vector(width / 2 + 600, 700), new Vector(width / 2 + 900, 550), new Vector(width / 2 + 1000, 200), new Vector(width / 2 + 1000, 900)];
+    let positionsB: Vector [] = [new Vector(width / 2 + 1350, 550), new Vector(width / 2 + 1200, 200), new Vector(width / 2 + 1200, 900), new Vector(width / 2 + 1140, 550), new Vector(width / 2 + 840, 200), new Vector(width / 2 + 840, 900), new Vector(width / 2 + 750, 400), new Vector(width / 2 + 750, 700), new Vector(width / 2 + 450, 550), new Vector(width / 2 + 250, 200), new Vector(width / 2 + 250, 900)];
+    let baseA: Vector [] = [new Vector(width / 2 - 20, 550), new Vector(width / 2 + 40, 200), new Vector (width / 2 + 40, 900), new Vector(width / 2 + 200, 550), new Vector(width / 2 + 400, 200), new Vector(width / 2 + 400, 900), new Vector(width / 2 + 600, 400), new Vector(width / 2 + 600, 700), new Vector(width / 2 + 900, 550), new Vector(width / 2 + 1000, 200), new Vector(width / 2 + 1000, 900)];
+    let baseB: Vector [] = [new Vector(width / 2 + 1400, 550), new Vector(width / 2 + 1200, 200), new Vector(width / 2 + 1200, 900), new Vector(width / 2 + 1040, 550), new Vector(width / 2 + 840, 200), new Vector(width / 2 + 840, 900), new Vector(width / 2 + 750, 400), new Vector(width / 2 + 750, 700), new Vector(width / 2 + 450, 550), new Vector(width / 2 + 400, 200), new Vector(width / 2 + 400, 900)];
     export enum TASK {
         WAIT,
         MOVE,
@@ -37,8 +47,8 @@ namespace endaufgabe_jogi {
     let settingsA: HTMLElement = <HTMLElement> document.querySelector("#settingsA");
     let settingsB: HTMLElement = <HTMLElement> document.querySelector("#settingsB");
 
-    let teamA: string = "Team A";
-    let teamB: string = "Team B";
+    let teamA: string = "";
+    let teamB: string = "";
     let colorA: string = "";
     let colorB: string = "";
     let speedMin: number = 5;
@@ -47,6 +57,8 @@ namespace endaufgabe_jogi {
     let precisionMin: number = 5;
     let precisionMaxA: number = Number("");
     let precisionMaxB: number = Number("");
+
+    let colorSettingA: string [] = [];
 
     let playerNumbersA: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     let playerNumbersB: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
@@ -57,6 +69,7 @@ namespace endaufgabe_jogi {
     let newGameBtn: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#newGame");
 
     let animation: boolean = true;
+    let eventClick: MouseEvent;
 
 
     let moveables: Moveable [] = [];
@@ -77,7 +90,7 @@ namespace endaufgabe_jogi {
         return Math.floor(Math.random() * (_max - _min + 1) + _min);
     }
 
-    window.addEventListener("load", handleLoad);
+    
 
     function handleLoad(): void {
 
@@ -89,9 +102,7 @@ namespace endaufgabe_jogi {
 
         startbtn.addEventListener("click", startGame);
 
-        canvas.addEventListener("first_player", function(e: CustomEventInit): void {
-            reachBall(e.detail);
-        });
+        canvas.addEventListener("first_player", reachBall);
 
         canvas.addEventListener("click", handleClick);
 
@@ -105,7 +116,7 @@ namespace endaufgabe_jogi {
         //drawBall();
     }
 
-    function formChangeA(_event: Event): void {
+    /*function formChangeA(_event: Event): void {
         let menuDataA: FormData = new FormData(document.forms[0]);
         for (let input of menuDataA) {
             switch (input[0]) {
@@ -125,7 +136,31 @@ namespace endaufgabe_jogi {
             
         } 
         console.log("Team A Settings: Color: " + colorA + " Max Speed: " + speedMaxA + " Max Precision: " + precisionMaxA);
+    }*/
+
+    function formChangeA(_event: Event): void {
+        let menuDataA: FormData = new FormData(document.forms[0]);
+        for (let input of menuDataA) {
+            switch (input[0]) {
+                case "colorA":
+                    colorSettingA.push(String(input[1]));
+                    break;
+                case "maxA1":
+                    speedMaxA = Number(input[1]);
+                    break;
+                case "maxA2":
+                    precisionMaxA = Number(input[1]);
+                    break;
+                default:
+                    console.log("no settings for A");     
+            }
+            
+            
+        } 
+        console.log("Team A Settings: Color: " + colorSettingA[0] + " Max Speed: " + speedMaxA + " Max Precision: " + precisionMaxA);
     }
+    console.log(colorSettingA[0]);
+    
 
     function formChangeB(_event: Event): void {
         let menuDataB: FormData = new FormData(document.forms[1]);
@@ -153,10 +188,6 @@ namespace endaufgabe_jogi {
         
         newGameBtn.classList.remove("hidden");
         newGameBtn.addEventListener("click", startNewGame);
-        document.body.appendChild(newGameBtn);
-
-        
-        drawField();
 
         imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
 
@@ -165,27 +196,30 @@ namespace endaufgabe_jogi {
         createReferee();
         createLineJudge();
 
-        let ball: Ball = new Ball (new Vector (width / 2, height / 2));
+        let ball: Ball = new Ball (new Vector (width / 2 + 670, height / 2 + 450));
         ball.draw();
         moveables.push(ball);
 
         window.setInterval(update, 20); 
+        console.log(colorA);
+        
 
     }
 
     function createTeamA(): void {
+        console.log(colorA);
         for (let i: number = 0; i < 11; i ++) {
-            let playerA: Player = new Player(positionsA[i], baseA[i], teamA, createRandomNum(speedMin, speedMaxA), createRandomNum(precisionMin, precisionMaxA), colorA, playerNumbersA[i]);
+            let playerA: Player = new Player(positionsA[i], baseA[i], "Team A", createRandomNum(speedMin, speedMaxA), createRandomNum(precisionMin, precisionMaxA), colorA, playerNumbersA[i]);
             playerA.draw();
             moveables.push(playerA);
-            console.log(colorA);
+            
             
         }
     }
 
     function createTeamB(): void {
         for (let i: number = 0; i < 11; i ++) {
-            let playerB: Player = new Player(positionsB[i], baseB[i], teamB, createRandomNum(speedMin, speedMaxB), createRandomNum(precisionMin, precisionMaxB), colorB, playerNumbersB[i]);
+            let playerB: Player = new Player(positionsB[i], baseB[i], "Team B", createRandomNum(speedMin, speedMaxB), createRandomNum(precisionMin, precisionMaxB), colorB, playerNumbersB[i]);
             playerB.draw();
             moveables.push(playerB);
         }
@@ -194,12 +228,12 @@ namespace endaufgabe_jogi {
     function createLineJudge(): void {
         for (let i: number = 0; i < 2; i++) {
             if (i == 0) {
-                let lineJudge: LineJudge = new LineJudge(new Vector(width / 2, height / 76 * 76.5), "black");
+                let lineJudge: LineJudge = new LineJudge(new Vector(width / 2, height / 80 * 60), "black");
                 lineJudge.draw();
                 moveables.push(lineJudge);
             }
             else if (i == 1) {
-                let lineJudge: LineJudge = new LineJudge(new Vector(width / 2, height / 75 * 6.5), "black");
+                let lineJudge: LineJudge = new LineJudge(new Vector(width / 2, height / 80 * 5), "black");
                 lineJudge.draw();
                 moveables.push(lineJudge);
             }
@@ -207,7 +241,7 @@ namespace endaufgabe_jogi {
     }
 
     function createReferee(): void {
-        let referee: Referee = new Referee(new Vector(width / 110 * 60, height / 2 + 30), "black");
+        let referee: Referee = new Referee(new Vector(width / 2, height / 2), "black");
         referee.draw();
         moveables.push(referee);
     }
@@ -230,16 +264,18 @@ namespace endaufgabe_jogi {
 
             if (ballMoves == true) {
                 let player: Player [] = [];
-                let ball: Ball [] = [];
+                //let ball: Ball [] = [];
                 for (let moveable of moveables) {
 
                     if (moveable instanceof Ball) {
-                        ball.push(moveable);
-                        ball[0].move(event);
-                        ball[0].draw();
+                        //ball.push(moveable);
+                        //ball[0].move(event);
+                        //ball[0].draw();
+                        moveable.move(eventClick);
+                        moveable.draw();
                     }
                     else if (moveable instanceof Player) {
-                        player.push(moveable)
+                        player.push(moveable);
                     }
 
                     for (let i: number = 0; i < player.length; i++) {
@@ -298,7 +334,8 @@ namespace endaufgabe_jogi {
     function handleClick(_event: MouseEvent): void {
         animation = true;
         checkArrival = true;
-        event = _event;
+        ballMoves = true;
+        eventClick = _event;
     }
 
     function replacePlayer(_event: KeyboardEvent): void {
