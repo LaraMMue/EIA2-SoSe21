@@ -15,6 +15,9 @@ namespace endaufgabe_jogi {
 
     export let checkArrival: boolean = true;
 
+    canvas.width = window.innerHeight;
+    canvas.height = canvas.width / 110 * 75;
+
     export let width: number = Number (canvas.width);
     export let height: number = Number (canvas.height);
 
@@ -28,10 +31,16 @@ namespace endaufgabe_jogi {
     let baseA: Vector [] = [new Vector(100, 550), new Vector(200, 200), new Vector (200, 900), new Vector(300, 550), new Vector(400, 200), new Vector(400, 900), new Vector(500, 400), new Vector(500, 700), new Vector(700, 550), new Vector(800, 200), new Vector(800, 900)];
     let baseB: Vector [] = [new Vector(1000, 550), new Vector(900, 200), new Vector(900, 900), new Vector(800, 550), new Vector(700, 200), new Vector(700, 900), new Vector(600, 400), new Vector(600, 700), new Vector(400, 550), new Vector(300, 200), new Vector(300, 900)];
     */
-    let positionsA: Vector [] = [new Vector(width / 2 - 20, 550), new Vector(width / 2 + 40, 200), new Vector (width / 2 + 40, 900), new Vector(width / 2 + 200, 550), new Vector(width / 2 + 400, 200), new Vector(width / 2 + 400, 900), new Vector(width / 2 + 600, 400), new Vector(width / 2 + 600, 700), new Vector(width / 2 + 900, 550), new Vector(width / 2 + 1000, 200), new Vector(width / 2 + 1000, 900)];
+    /*let positionsA: Vector [] = [new Vector(width / 2 - 20, 550), new Vector(width / 2 + 40, 200), new Vector (width / 2 + 40, 900), new Vector(width / 2 + 200, 550), new Vector(width / 2 + 400, 200), new Vector(width / 2 + 400, 900), new Vector(width / 2 + 600, 400), new Vector(width / 2 + 600, 700), new Vector(width / 2 + 900, 550), new Vector(width / 2 + 1000, 200), new Vector(width / 2 + 1000, 900)];
     let positionsB: Vector [] = [new Vector(width / 2 + 1350, 550), new Vector(width / 2 + 1200, 200), new Vector(width / 2 + 1200, 900), new Vector(width / 2 + 1140, 550), new Vector(width / 2 + 840, 200), new Vector(width / 2 + 840, 900), new Vector(width / 2 + 750, 400), new Vector(width / 2 + 750, 700), new Vector(width / 2 + 450, 550), new Vector(width / 2 + 250, 200), new Vector(width / 2 + 250, 900)];
     let baseA: Vector [] = [new Vector(width / 2 - 20, 550), new Vector(width / 2 + 40, 200), new Vector (width / 2 + 40, 900), new Vector(width / 2 + 200, 550), new Vector(width / 2 + 400, 200), new Vector(width / 2 + 400, 900), new Vector(width / 2 + 600, 400), new Vector(width / 2 + 600, 700), new Vector(width / 2 + 900, 550), new Vector(width / 2 + 1000, 200), new Vector(width / 2 + 1000, 900)];
     let baseB: Vector [] = [new Vector(width / 2 + 1400, 550), new Vector(width / 2 + 1200, 200), new Vector(width / 2 + 1200, 900), new Vector(width / 2 + 1040, 550), new Vector(width / 2 + 840, 200), new Vector(width / 2 + 840, 900), new Vector(width / 2 + 750, 400), new Vector(width / 2 + 750, 700), new Vector(width / 2 + 450, 550), new Vector(width / 2 + 400, 200), new Vector(width / 2 + 400, 900)];
+    */
+    let positionsA: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
+    let positionsB: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
+    let baseA: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
+    let baseB: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
+    
     export enum TASK {
         WAIT,
         MOVE,
@@ -39,8 +48,10 @@ namespace endaufgabe_jogi {
     }
 
 
-    let windowWidth: number = window.innerWidth / 1.3;
-    let windowHeight: number = window.innerHeight;
+    //let windowWidth: number = window.innerWidth / 1.3;
+    //let windowHeight: number = window.innerHeight;
+
+    
 
     
 
@@ -94,8 +105,6 @@ namespace endaufgabe_jogi {
 
     function handleLoad(): void {
 
-        canvas.width = windowWidth;
-        canvas.height = windowHeight;
 
         settingsA.addEventListener("change", formChangeA);
         settingsB.addEventListener("change", formChangeB);
