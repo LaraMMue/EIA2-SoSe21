@@ -73,7 +73,7 @@ var endaufgabe_jogi;
             //console.log("waiting");
         }
         draw() {
-            endaufgabe_jogi.drawPlayer(this.position, this.color, this.type, this.team);
+            endaufgabe_jogi.drawPlayer(this.position, this.type, this.color, this.team);
         }
         changeTask(_task, _ball) {
             if (_task)

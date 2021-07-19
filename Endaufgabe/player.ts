@@ -91,7 +91,7 @@ namespace endaufgabe_jogi {
         }
 
         draw(): void {
-            drawPlayer(this.position, this.color, this.type, this.team);
+            drawPlayer(this.position, this.type, this.color, this.team);
             
             
         }
