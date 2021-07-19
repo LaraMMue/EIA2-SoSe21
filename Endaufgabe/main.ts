@@ -69,7 +69,6 @@ namespace endaufgabe_jogi {
     let precisionMaxA: number = Number("");
     let precisionMaxB: number = Number("");
 
-    let colorSettingA: string [] = [];
 
     let playerNumbersA: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     let playerNumbersB: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
@@ -152,7 +151,7 @@ namespace endaufgabe_jogi {
         for (let input of menuDataA) {
             switch (input[0]) {
                 case "colorA":
-                    colorSettingA.push(String(input[1]));
+                    colorA = String(input[1]);
                     break;
                 case "maxA1":
                     speedMaxA = Number(input[1]);
@@ -166,9 +165,9 @@ namespace endaufgabe_jogi {
             
             
         } 
-        console.log("Team A Settings: Color: " + colorSettingA[0] + " Max Speed: " + speedMaxA + " Max Precision: " + precisionMaxA);
+        console.log("Team A Settings: Color: " + colorA + " Max Speed: " + speedMaxA + " Max Precision: " + precisionMaxA);
     }
-    console.log(colorSettingA[0]);
+    console.log(colorA);
     
 
     function formChangeB(_event: Event): void {

@@ -51,7 +51,6 @@ var endaufgabe_jogi;
     let precisionMin = 5;
     let precisionMaxA = Number("");
     let precisionMaxB = Number("");
-    let colorSettingA = [];
     let playerNumbersA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     let playerNumbersB = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     let menu = document.querySelector("#settings");
@@ -107,7 +106,7 @@ var endaufgabe_jogi;
         for (let input of menuDataA) {
             switch (input[0]) {
                 case "colorA":
-                    colorSettingA.push(String(input[1]));
+                    colorA = String(input[1]);
                     break;
                 case "maxA1":
                     speedMaxA = Number(input[1]);
@@ -119,9 +118,9 @@ var endaufgabe_jogi;
                     console.log("no settings for A");
             }
         }
-        console.log("Team A Settings: Color: " + colorSettingA[0] + " Max Speed: " + speedMaxA + " Max Precision: " + precisionMaxA);
+        console.log("Team A Settings: Color: " + colorA + " Max Speed: " + speedMaxA + " Max Precision: " + precisionMaxA);
     }
-    console.log(colorSettingA[0]);
+    console.log(colorA);
     function formChangeB(_event) {
         let menuDataB = new FormData(document.forms[1]);
         for (let input of menuDataB) {
