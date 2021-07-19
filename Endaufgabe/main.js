@@ -43,14 +43,14 @@ var endaufgabe_jogi;
     let settingsB = document.querySelector("#settingsB");
     let teamA = "";
     let teamB = "";
-    let colorA = "";
-    let colorB = "";
+    let colorA = "#2eb9ff";
+    let colorB = "#ff0000";
     let speedMin = 5;
-    let speedMaxA = Number("");
-    let speedMaxB = Number("");
+    let speedMaxA = Number("50");
+    let speedMaxB = Number("60");
     let precisionMin = 5;
-    let precisionMaxA = Number("");
-    let precisionMaxB = Number("");
+    let precisionMaxA = Number("80");
+    let precisionMaxB = Number("60");
     let playerNumbersA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     let playerNumbersB = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     let menu = document.querySelector("#settings");
@@ -152,12 +152,12 @@ var endaufgabe_jogi;
     function createLineJudge() {
         for (let i = 0; i < 2; i++) {
             if (i == 0) {
-                let lineJudge = new endaufgabe_jogi.LineJudge(new endaufgabe_jogi.Vector(endaufgabe_jogi.width / 2, endaufgabe_jogi.height / 80 * 60), "black");
+                let lineJudge = new endaufgabe_jogi.LineJudge(new endaufgabe_jogi.Vector(endaufgabe_jogi.width / 2, endaufgabe_jogi.height / 75 * 76.5), "black");
                 lineJudge.draw();
                 moveables.push(lineJudge);
             }
             else if (i == 1) {
-                let lineJudge = new endaufgabe_jogi.LineJudge(new endaufgabe_jogi.Vector(endaufgabe_jogi.width / 2, endaufgabe_jogi.height / 80 * 5), "black");
+                let lineJudge = new endaufgabe_jogi.LineJudge(new endaufgabe_jogi.Vector(endaufgabe_jogi.width / 2, endaufgabe_jogi.height / 75 * 6.5), "black");
                 lineJudge.draw();
                 moveables.push(lineJudge);
             }

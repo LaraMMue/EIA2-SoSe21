@@ -30,19 +30,19 @@ namespace endaufgabe_jogi {
                         case (offset.length == 0):
                             console.log("length = ", length);
                             break;
-                        case (offset.length < (width / 1.15)):
+                        case (offset.length < (width / 110 * 10.5)):
                             spreading = this.moveWithOffset(mousePos, 3);
                             break;
-                        case (offset.length < (width / 2.36)):
+                        case (offset.length < (width / 110 * 21.5)):
                             spreading = this.moveWithOffset(mousePos, 15);
                             break;
                         case (offset.length < (width / 2)):
                             spreading = this.moveWithOffset(mousePos, 25);
                             break;
-                        case (offset.length < (width / 9.73)):
+                        case (offset.length < (width / 110 * 88.5)):
                             spreading = this.moveWithOffset(mousePos, 50);
                             break;
-                        case (offset.length < (width / 12.1)):
+                        case (offset.length < (width / 110 * 110)):
                             spreading = this.moveWithOffset(mousePos, 70);
                             break;
     

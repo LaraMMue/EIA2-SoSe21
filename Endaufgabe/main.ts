@@ -60,14 +60,14 @@ namespace endaufgabe_jogi {
 
     let teamA: string = "";
     let teamB: string = "";
-    let colorA: string = "";
-    let colorB: string = "";
+    let colorA: string = "#2eb9ff";
+    let colorB: string = "#ff0000";
     let speedMin: number = 5;
-    let speedMaxA: number = Number("");
-    let speedMaxB: number = Number("");
+    let speedMaxA: number = Number("50");
+    let speedMaxB: number = Number("60");
     let precisionMin: number = 5;
-    let precisionMaxA: number = Number("");
-    let precisionMaxB: number = Number("");
+    let precisionMaxA: number = Number("80");
+    let precisionMaxB: number = Number("60");
 
 
     let playerNumbersA: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
@@ -216,12 +216,12 @@ namespace endaufgabe_jogi {
     function createLineJudge(): void {
         for (let i: number = 0; i < 2; i++) {
             if (i == 0) {
-                let lineJudge: LineJudge = new LineJudge(new Vector(width / 2, height / 80 * 60), "black");
+                let lineJudge: LineJudge = new LineJudge(new Vector(width / 2, height / 75 * 76.5), "black");
                 lineJudge.draw();
                 moveables.push(lineJudge);
             }
             else if (i == 1) {
-                let lineJudge: LineJudge = new LineJudge(new Vector(width / 2, height / 80 * 5), "black");
+                let lineJudge: LineJudge = new LineJudge(new Vector(width / 2, height / 75 * 6.5), "black");
                 lineJudge.draw();
                 moveables.push(lineJudge);
             }
