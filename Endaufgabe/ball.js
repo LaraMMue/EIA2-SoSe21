@@ -51,7 +51,7 @@ var endaufgabe_jogi;
                 if (newPos != null) {
                     let difference = endaufgabe_jogi.Vector.getDifference(newPos, this.position);
                     let newOffset = new endaufgabe_jogi.Vector(difference.x, difference.y);
-                    newOffset.scale(this.speed);
+                    newOffset.scale(1 / this.speed);
                     this.position.add(newOffset);
                     let round = new endaufgabe_jogi.Vector(Math.round(newPos.x), Math.round(newPos.y));
                     let roundBall = new endaufgabe_jogi.Vector(Math.round(this.position.x), Math.round(this.position.y));

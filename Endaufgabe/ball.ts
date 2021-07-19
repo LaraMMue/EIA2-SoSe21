@@ -58,7 +58,7 @@ namespace endaufgabe_jogi {
                 if (newPos != null) {
                     let difference: Vector = Vector.getDifference(newPos, this.position);
                     let newOffset: Vector = new Vector(difference.x, difference.y);
-                    newOffset.scale(this.speed);
+                    newOffset.scale(1 / this.speed);
                     this.position.add(newOffset);
 
                     let round: Vector = new Vector(Math.round(newPos.x), Math.round(newPos.y));
