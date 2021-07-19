@@ -124,28 +124,6 @@ namespace endaufgabe_jogi {
         //drawBall();
     }
 
-    /*function formChangeA(_event: Event): void {
-        let menuDataA: FormData = new FormData(document.forms[0]);
-        for (let input of menuDataA) {
-            switch (input[0]) {
-                case "colorA":
-                    colorA = String(input[1]);
-                    break;
-                case "maxA1":
-                    speedMaxA = Number(input[1]);
-                    break;
-                case "maxA2":
-                    precisionMaxA = Number(input[1]);
-                    break;
-                default:
-                    console.log("no settings for A");     
-            }
-            
-            
-        } 
-        console.log("Team A Settings: Color: " + colorA + " Max Speed: " + speedMaxA + " Max Precision: " + precisionMaxA);
-    }*/
-
     function formChangeA(_event: Event): void {
         let menuDataA: FormData = new FormData(document.forms[0]);
         for (let input of menuDataA) {
@@ -167,6 +145,8 @@ namespace endaufgabe_jogi {
         } 
         console.log("Team A Settings: Color: " + colorA + " Max Speed: " + speedMaxA + " Max Precision: " + precisionMaxA);
     }
+
+    
     console.log(colorA);
     
 
