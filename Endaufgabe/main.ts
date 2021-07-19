@@ -317,14 +317,20 @@ namespace endaufgabe_jogi {
 
     function reachBall(_player: CustomEventInit): void {
         animation = false;
-        canvas.addEventListener("click", handleClick)
+        canvas.addEventListener("click", handleClick);
     }
 
     function handleClick(_event: MouseEvent): void {
-        animation = true;
-        checkArrival = true;
-        ballMoves = true;
-        eventClick = _event;
+        let shiftPressed: boolean = _event.shiftKey;
+        let ctrlPressed: boolean = _event.ctrlKey;
+
+        if (shiftPressed == false && ctrlPressed == false) {
+            animation = true;
+            checkArrival = true;
+            ballMoves = true;
+            eventClick = _event;
+        }
+        
     }
 
     function replacePlayer(_event: KeyboardEvent): void {

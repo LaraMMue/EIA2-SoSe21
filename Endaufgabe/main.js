@@ -237,10 +237,14 @@ var endaufgabe_jogi;
         endaufgabe_jogi.canvas.addEventListener("click", handleClick);
     }
     function handleClick(_event) {
-        animation = true;
-        endaufgabe_jogi.checkArrival = true;
-        endaufgabe_jogi.ballMoves = true;
-        eventClick = _event;
+        let shiftPressed = _event.shiftKey;
+        let ctrlPressed = _event.ctrlKey;
+        if (shiftPressed == false && ctrlPressed == false) {
+            animation = true;
+            endaufgabe_jogi.checkArrival = true;
+            endaufgabe_jogi.ballMoves = true;
+            eventClick = _event;
+        }
     }
     function replacePlayer(_event) {
         let keyPressed = _event.key;

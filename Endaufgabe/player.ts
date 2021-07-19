@@ -26,7 +26,7 @@ namespace endaufgabe_jogi {
                 let offset: Vector = new Vector (difference.x, difference.y);
                 let normalise: Vector | undefined = Vector.getNormalisedVector(offset, offset.length);
                 if (normalise) {
-                    normalise.scale(1 / this.speed);
+                    normalise.scale(1 / (100 - this.speed));
                     this.position.add(normalise);
                 }
                 //offset.scale(1 / this.speed);

@@ -20,7 +20,7 @@ var endaufgabe_jogi;
                 let offset = new endaufgabe_jogi.Vector(difference.x, difference.y);
                 let normalise = endaufgabe_jogi.Vector.getNormalisedVector(offset, offset.length);
                 if (normalise) {
-                    normalise.scale(1 / this.speed);
+                    normalise.scale(1 / (100 - this.speed));
                     this.position.add(normalise);
                 }
                 //offset.scale(1 / this.speed);
