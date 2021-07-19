@@ -98,7 +98,7 @@ namespace endaufgabe_jogi {
         }
 
         goal(): void {
-            if (this.position.x >= canvas.width / 110 * 100 && this. position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
+            if (this.position.x >= canvas.width / 110 * 100 && this.position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
                 goal = true;
                 this.handleGoal("teamA");
             
