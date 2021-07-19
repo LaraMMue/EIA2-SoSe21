@@ -21,7 +21,7 @@ var endaufgabe_jogi;
             let moveX = endaufgabe_jogi.createRandomNum(left, right);
             let xDirection = endaufgabe_jogi.createRandomNum(-moveX, moveX);
             let position = new endaufgabe_jogi.Vector(xDirection, 0);
-            position.scale(this.speed);
+            position.scale(1 / this.speed);
             this.position.add(position);
             if (this.position.x < 0) {
                 this.position.x += endaufgabe_jogi.crc2.canvas.width;
