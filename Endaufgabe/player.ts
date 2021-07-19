@@ -92,7 +92,7 @@ namespace endaufgabe_jogi {
 
         draw(): void {
             drawPlayer(this.position, this.color, this.type, this.team);
-            console.log();
+            
             
         }
 

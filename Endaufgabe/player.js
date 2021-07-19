@@ -74,7 +74,6 @@ var endaufgabe_jogi;
         }
         draw() {
             endaufgabe_jogi.drawPlayer(this.position, this.color, this.type, this.team);
-            console.log();
         }
         changeTask(_task, _ball) {
             if (_task)

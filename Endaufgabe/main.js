@@ -150,7 +150,7 @@ var endaufgabe_jogi;
         createTeamB();
         createReferee();
         createLineJudge();
-        let ball = new endaufgabe_jogi.Ball(new endaufgabe_jogi.Vector(endaufgabe_jogi.width / 2 + 670, endaufgabe_jogi.height / 2 + 450));
+        let ball = new endaufgabe_jogi.Ball(new endaufgabe_jogi.Vector(endaufgabe_jogi.width / 2, endaufgabe_jogi.height / 2));
         ball.draw();
         moveables.push(ball);
         window.setInterval(update, 20);

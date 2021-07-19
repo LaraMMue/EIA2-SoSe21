@@ -205,7 +205,7 @@ namespace endaufgabe_jogi {
         createReferee();
         createLineJudge();
 
-        let ball: Ball = new Ball (new Vector (width / 2 + 670, height / 2 + 450));
+        let ball: Ball = new Ball (new Vector (width / 2, height / 2));
         ball.draw();
         moveables.push(ball);
 
