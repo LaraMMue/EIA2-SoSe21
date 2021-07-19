@@ -112,7 +112,7 @@ namespace endaufgabe_jogi {
 
         canvas.addEventListener("first_player", reachBall);
 
-        canvas.addEventListener("click", handleClick);
+        //canvas.addEventListener("click", handleClick);
 
         document.addEventListener("keydown", replacePlayer);
         canvas.addEventListener("click", displayPlayerInfo);
@@ -317,6 +317,7 @@ namespace endaufgabe_jogi {
 
     function reachBall(_player: CustomEventInit): void {
         animation = false;
+        canvas.addEventListener("click", handleClick)
     }
 
     function handleClick(_event: MouseEvent): void {

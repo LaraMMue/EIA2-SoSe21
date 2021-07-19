@@ -73,7 +73,7 @@ var endaufgabe_jogi;
         settingsB.addEventListener("change", formChangeB);
         startbtn.addEventListener("click", startGame);
         endaufgabe_jogi.canvas.addEventListener("first_player", reachBall);
-        endaufgabe_jogi.canvas.addEventListener("click", handleClick);
+        //canvas.addEventListener("click", handleClick);
         document.addEventListener("keydown", replacePlayer);
         endaufgabe_jogi.canvas.addEventListener("click", displayPlayerInfo);
         endaufgabe_jogi.drawField();
@@ -234,6 +234,7 @@ var endaufgabe_jogi;
     }
     function reachBall(_player) {
         animation = false;
+        endaufgabe_jogi.canvas.addEventListener("click", handleClick);
     }
     function handleClick(_event) {
         animation = true;

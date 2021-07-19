@@ -89,7 +89,7 @@ var endaufgabe_jogi;
                 endaufgabe_jogi.goal = true;
                 this.handleGoal("teamA");
             }
-            else if (this.position.x <= endaufgabe_jogi.canvas.width / 110 * 5 && this.position.y < endaufgabe_jogi.canvas.height / 2 + 40 && this.position.y > endaufgabe_jogi.canvas.height / 2 - 40) {
+            else if (this.position.x <= endaufgabe_jogi.canvas.width / 110 * 10 && this.position.y < endaufgabe_jogi.canvas.height / 2 + 40 && this.position.y > endaufgabe_jogi.canvas.height / 2 - 40) {
                 endaufgabe_jogi.goal = true;
                 this.handleGoal("teamB");
             }
